@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages, Command, os  # noqa: H301
 
 NAME = "docusign-admin"
-VERSION = "1.0.0b3"
+VERSION = "1.0.0b0"
 # To install the library, run the following
 #
 # python setup.py install
