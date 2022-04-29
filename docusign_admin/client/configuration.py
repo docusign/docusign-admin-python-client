@@ -90,9 +90,9 @@ class Configuration(object):
         self.key_file = None
 
         if PY3:
-            self.user_agent = 'Swagger-Codegen/v2.1/1.0.0/python3'
+            self.user_agent = 'Swagger-Codegen/v2.1/1.1.0/python3'
         else:
-            self.user_agent = 'Swagger-Codegen/v2.1/1.0.0/python2'
+            self.user_agent = 'Swagger-Codegen/v2.1/1.1.0/python2'
 
     @property
     def logger_file(self):
