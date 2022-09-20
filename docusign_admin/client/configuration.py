@@ -89,6 +89,8 @@ class Configuration(object):
         # client key file
         self.key_file = None
 
+        self.client_side_validation = True
+
         if PY3:
             self.user_agent = 'Swagger-Codegen/v2.1/1.1.0/python3'
         else:

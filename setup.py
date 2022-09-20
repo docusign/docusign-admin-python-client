@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages, Command, os  # noqa: H301	
 
 NAME = "docusign-admin"
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 # To install the library, run the following
 #
 # python setup.py install
