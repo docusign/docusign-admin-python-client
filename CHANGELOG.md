@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v1.2.0] - Admin API v2.1-1.1.1 - 2023-03-22
+### Changed
+- Added support for version v2.1-1.1.1 of the DocuSign Admin API.
+- Updated the SDK release version.
+
 ## [v1.1.1] - Admin API v2.1-1.1.0 - 2022-09-20
 ### Changed
 - Added support for version v2.1-22.3.00.00 of the DocuSign ESignature API.

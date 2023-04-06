@@ -4,7 +4,7 @@
 <!--[![PyPI downloads][downloads-image]][downloads-url]-->
 [![Build status][travis-image]][travis-url]
 
-[PyPI module](https://pypi.python.org/pypi/docusign_orgadmin) that wraps the <a href="https://www.docusign.com/products/orgadmin-for-real-estate">DocuSign OrgAdmin</a> API
+[PyPI module](https://pypi.python.org/pypi/docusign_admin) that wraps the <a href="https://www.docusign.com/products/orgadmin-for-real-estate">DocuSign OrgAdmin</a> API
 
 [Documentation about the DocuSign OrgAdmin API](https://developers.docusign.com/)
 
