@@ -268,7 +268,7 @@ class BulkImportsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def create_bulk_import_close_users_request(self, organization_id, **kwargs):
+    def create_bulk_import_close_users_request(self, organization_id, file_csv, **kwargs):
         """
         Closes the Bulk User Import request
         Required scopes: user_write
@@ -278,23 +278,24 @@ class BulkImportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_bulk_import_close_users_request(organization_id, callback=callback_function)
+        >>> thread = api.create_bulk_import_close_users_request(organization_id, file_csv, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
+        :param file file_csv: CSV file. (required)
         :return: OrganizationImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.create_bulk_import_close_users_request_with_http_info(organization_id, **kwargs)
+            return self.create_bulk_import_close_users_request_with_http_info(organization_id, file_csv, **kwargs)
         else:
-            (data) = self.create_bulk_import_close_users_request_with_http_info(organization_id, **kwargs)
+            (data) = self.create_bulk_import_close_users_request_with_http_info(organization_id, file_csv, **kwargs)
             return data
 
-    def create_bulk_import_close_users_request_with_http_info(self, organization_id, **kwargs):
+    def create_bulk_import_close_users_request_with_http_info(self, organization_id, file_csv, **kwargs):
         """
         Closes the Bulk User Import request
         Required scopes: user_write
@@ -304,17 +305,18 @@ class BulkImportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_bulk_import_close_users_request_with_http_info(organization_id, callback=callback_function)
+        >>> thread = api.create_bulk_import_close_users_request_with_http_info(organization_id, file_csv, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
+        :param file file_csv: CSV file. (required)
         :return: OrganizationImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id']
+        all_params = ['organization_id', 'file_csv']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -332,6 +334,9 @@ class BulkImportsApi(object):
         # verify the required parameter 'organization_id' is set
         if ('organization_id' not in params) or (params['organization_id'] is None):
             raise ValueError("Missing the required parameter `organization_id` when calling `create_bulk_import_close_users_request`")
+        # verify the required parameter 'file_csv' is set
+        if ('file_csv' not in params) or (params['file_csv'] is None):
+            raise ValueError("Missing the required parameter `file_csv` when calling `create_bulk_import_close_users_request`")
 
 
         collection_formats = {}
@@ -347,6 +352,8 @@ class BulkImportsApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'file_csv' in params:
+            local_var_files['file.csv'] = params['file_csv']
 
         body_params = None
         # HTTP header `Accept`
@@ -355,7 +362,7 @@ class BulkImportsApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['multipart/form-data'])
 
         # Authentication setting
         auth_settings = []
