@@ -21,6 +21,7 @@ from .apis.bulk_exports_api import BulkExportsApi
 from .apis.bulk_imports_api import BulkImportsApi
 from .apis.ds_groups_api import DSGroupsApi
 from .apis.identity_providers_api import IdentityProvidersApi
+from .apis.organizations_api import OrganizationsApi
 from .apis.product_permission_profiles_api import ProductPermissionProfilesApi
 from .apis.reserved_domains_api import ReservedDomainsApi
 from .apis.users_api import UsersApi
@@ -64,9 +65,14 @@ from docusign_admin.models.force_activate_membership_request import ForceActivat
 from docusign_admin.models.group_request import GroupRequest
 from docusign_admin.models.identity_provider_response import IdentityProviderResponse
 from docusign_admin.models.identity_providers_response import IdentityProvidersResponse
+from docusign_admin.models.individual_membership_data_redaction_request import IndividualMembershipDataRedactionRequest
+from docusign_admin.models.individual_user_data_redaction_request import IndividualUserDataRedactionRequest
+from docusign_admin.models.individual_user_data_redaction_response import IndividualUserDataRedactionResponse
 from docusign_admin.models.link_response import LinkResponse
 from docusign_admin.models.member_group_response import MemberGroupResponse
 from docusign_admin.models.member_groups_response import MemberGroupsResponse
+from docusign_admin.models.membership_data_redaction_request import MembershipDataRedactionRequest
+from docusign_admin.models.membership_data_redaction_response import MembershipDataRedactionResponse
 from docusign_admin.models.membership_response import MembershipResponse
 from docusign_admin.models.new_account_user_request import NewAccountUserRequest
 from docusign_admin.models.new_multi_product_user_add_request import NewMultiProductUserAddRequest
