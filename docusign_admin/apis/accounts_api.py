@@ -383,3 +383,117 @@ class AccountsApi(object):
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
+
+    def redact_individual_membership_data(self, account_id, request_model, **kwargs):
+        """
+        Redacts membership data for users with memberships in an account.
+        Required scopes: user_data_redact
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.redact_individual_membership_data(account_id, request_model, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str account_id: The account ID Guid (required)
+        :param IndividualMembershipDataRedactionRequest request_model: The request body describing the membership to be redacted (required)
+        :return: IndividualUserDataRedactionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.redact_individual_membership_data_with_http_info(account_id, request_model, **kwargs)
+        else:
+            (data) = self.redact_individual_membership_data_with_http_info(account_id, request_model, **kwargs)
+            return data
+
+    def redact_individual_membership_data_with_http_info(self, account_id, request_model, **kwargs):
+        """
+        Redacts membership data for users with memberships in an account.
+        Required scopes: user_data_redact
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.redact_individual_membership_data_with_http_info(account_id, request_model, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str account_id: The account ID Guid (required)
+        :param IndividualMembershipDataRedactionRequest request_model: The request body describing the membership to be redacted (required)
+        :return: IndividualUserDataRedactionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['account_id', 'request_model']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method redact_individual_membership_data" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'account_id' is set
+        if ('account_id' not in params) or (params['account_id'] is None):
+            raise ValueError("Missing the required parameter `account_id` when calling `redact_individual_membership_data`")
+        # verify the required parameter 'request_model' is set
+        if ('request_model' not in params) or (params['request_model'] is None):
+            raise ValueError("Missing the required parameter `request_model` when calling `redact_individual_membership_data`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v2/data_redaction/accounts/{accountId}/user'.replace('{format}', 'json')
+        path_params = {}
+        if 'account_id' in params:
+            path_params['accountId'] = params['account_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_model' in params:
+            body_params = params['request_model']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='IndividualUserDataRedactionResponse',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
