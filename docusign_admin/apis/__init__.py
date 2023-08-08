@@ -10,5 +10,6 @@ from .ds_groups_api import DSGroupsApi
 from .identity_providers_api import IdentityProvidersApi
 from .organizations_api import OrganizationsApi
 from .product_permission_profiles_api import ProductPermissionProfilesApi
+from .provision_asset_group_api import ProvisionAssetGroupApi
 from .reserved_domains_api import ReservedDomainsApi
 from .users_api import UsersApi
