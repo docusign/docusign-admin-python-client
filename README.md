@@ -1,12 +1,12 @@
-# The Official DocuSign OrgAdmin Python Client
+# The Official DocuSign Admin Python Client
 
 [![PyPI version][pypi-image]][pypi-url]
 <!--[![PyPI downloads][downloads-image]][downloads-url]-->
 [![Build status][travis-image]][travis-url]
 
-[PyPI module](https://pypi.python.org/pypi/docusign_admin) that wraps the <a href="https://www.docusign.com/products/orgadmin-for-real-estate">DocuSign OrgAdmin</a> API
+[PyPI module](https://pypi.python.org/pypi/docusign_admin) that wraps the <a href="https://developers.docusign.com/docs/admin-api/">DocuSign Admin</a> API
 
-[Documentation about the DocuSign OrgAdmin API](https://developers.docusign.com/)
+[Documentation about the DocuSign Admin API](https://developers.docusign.com/)
 
 ## Requirements
 
@@ -56,7 +56,7 @@
 ### Install via PIP:
 
 1. In your command console, type:
-pip install docusign-orgadmin
+pip install docusign-admin
 
 Note: This may require the command console be elevated. You can accomplish this via sudoin Unix/Linux, or by running the command console as an administrator in Windows.
 
@@ -82,9 +82,9 @@ Log issues against this client through GitHub. We also have an [active developer
 The DocuSign Python Client is licensed under the [MIT License](https://github.com/docusign/docusign-python-client/blob/master/LICENSE).
 
 
-[pypi-image]: https://img.shields.io/pypi/v/docusign_orgadmin.svg?style=flat
-[pypi-url]: https://pypi.python.org/pypi/docusign_orgadmin
-[downloads-image]: https://img.shields.io/pypi/dm/docusign_orgadmin.svg?style=flat
-[downloads-url]: https://pypi.python.org/pypi/docusign_orgadmin
-[travis-image]: https://img.shields.io/travis/docusign/docusign-orgadmin-python-client.svg?style=flat
-[travis-url]: https://travis-ci.org/docusign/docusign-orgadmin-python-client
+[pypi-image]: https://img.shields.io/pypi/v/docusign_admin.svg?style=flat
+[pypi-url]: https://pypi.python.org/pypi/docusign_admin
+[downloads-image]: https://img.shields.io/pypi/dm/docusign_admin.svg?style=flat
+[downloads-url]: https://pypi.python.org/pypi/docusign_admin
+[travis-image]: https://img.shields.io/travis/docusign/docusign-admin-python-client.svg?style=flat
+[travis-url]: https://travis-ci.org/docusign/docusign-admin-python-client
