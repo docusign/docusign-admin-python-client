@@ -1,4 +1,4 @@
-# DocuSign OrgAdmin Python Client Changelog
+# DocuSign Admin Python Client Changelog
 All notable changes to this project will be documented in this file.
 
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
