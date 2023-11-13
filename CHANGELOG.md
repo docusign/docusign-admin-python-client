@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v1.4.1] - Admin API v2.1-1.3.0 - 2023-11-13
+### Changed
+- Fixed installation steps in README.md
+- Fixed link to API information in README.md
+- Updated Travis CI URL in README.md
+- Updated Python package URL in README.md
+
+This commit addresses inconsistencies and outdated information in the documentation,
+ensuring accurate and up-to-date details for users and contributors.
+
 ## [v1.4.0] - Admin API v2.1-1.3.0 - 2023-08-02
 ### Changed
 - Added support for version v2.1-1.3.0 of the DocuSign Admin API.
