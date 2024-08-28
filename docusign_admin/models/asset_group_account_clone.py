@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    DocuSign Admin API
+    Docusign Admin API
 
     An API for an organization administrator to manage organizations, accounts and users  # noqa: E501
 
@@ -46,7 +46,7 @@ class AssetGroupAccountClone(object):
         'created_by_name': 'str',
         'created_by_email': 'str',
         'message': 'str',
-        'clone_processing_failure_details': 'CloneErrorDetails'
+        'clone_processing_failure_details': 'SubAccountErrorDetails'
     }
 
     attribute_map = {
@@ -219,7 +219,7 @@ class AssetGroupAccountClone(object):
         :param asset_group_work_type: The asset_group_work_type of this AssetGroupAccountClone.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Undefined", "GroupAssetFulfillment", "AccountAssetFulfillment", "AccountAssetClone", "AccountAssetCreate"]  # noqa: E501
+        allowed_values = ["Undefined", "GroupAssetFulfillment", "AccountAssetFulfillment", "AccountAssetClone", "AccountAssetCreate", "SubscriptionSync"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 asset_group_work_type not in allowed_values):
             raise ValueError(
@@ -249,7 +249,7 @@ class AssetGroupAccountClone(object):
         :param status: The status of this AssetGroupAccountClone.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Undefined", "Pending", "Processing", "PendingError", "ProcessingError", "Completed", "Canceled", "PermanentFailure"]  # noqa: E501
+        allowed_values = ["Undefined", "Pending", "Processing", "ProcessingOnHold", "PendingError", "ProcessingError", "Completed", "Canceled", "PermanentFailure"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 status not in allowed_values):
             raise ValueError(
@@ -427,7 +427,7 @@ class AssetGroupAccountClone(object):
         The processing failures if the work is in PendingError/ProcessingError status.  # noqa: E501
 
         :return: The clone_processing_failure_details of this AssetGroupAccountClone.  # noqa: E501
-        :rtype: CloneErrorDetails
+        :rtype: SubAccountErrorDetails
         """
         return self._clone_processing_failure_details
 
@@ -438,7 +438,7 @@ class AssetGroupAccountClone(object):
         The processing failures if the work is in PendingError/ProcessingError status.  # noqa: E501
 
         :param clone_processing_failure_details: The clone_processing_failure_details of this AssetGroupAccountClone.  # noqa: E501
-        :type: CloneErrorDetails
+        :type: SubAccountErrorDetails
         """
 
         self._clone_processing_failure_details = clone_processing_failure_details

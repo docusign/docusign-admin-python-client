@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    DocuSign Admin API
+    Docusign Admin API
 
     An API for an organization administrator to manage organizations, accounts and users  # noqa: E501
 

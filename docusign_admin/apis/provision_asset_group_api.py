@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    DocuSign Admin API
+    Docusign Admin API
 
     An API for an organization administrator to manage organizations, accounts and users  # noqa: E501
 
@@ -42,7 +42,7 @@ class ProvisionAssetGroupApi(object):
 
     def clone_asset_group_account(self, organization_id, request, **kwargs):
         """
-        Clones an existing DocuSign account to a new DocuSign account.
+        Clones an existing Docusign account to a new Docusign account.
         Currently this only clones eSign settings and asset group information.  Required scopes: asset_group_account_clone_write
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -69,7 +69,7 @@ class ProvisionAssetGroupApi(object):
 
     def clone_asset_group_account_with_http_info(self, organization_id, request, **kwargs):
         """
-        Clones an existing DocuSign account to a new DocuSign account.
+        Clones an existing Docusign account to a new Docusign account.
         Currently this only clones eSign settings and asset group information.  Required scopes: asset_group_account_clone_write
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -113,7 +113,7 @@ class ProvisionAssetGroupApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/organizations/{organizationId}/assetGroups/accountClone'.replace('{format}', 'json')
+        resource_path = '/v2/organizations/{organizationId}/assetGroups/accountClone'.replace('{format}', 'json')
         path_params = {}
         if 'organization_id' in params:
             path_params['organizationId'] = params['organization_id']
@@ -147,6 +147,120 @@ class ProvisionAssetGroupApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='AssetGroupAccountClone',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def create_asset_group_account(self, organization_id, request, **kwargs):
+        """
+        Creates a new Docusign account using the plan and modules specified in request body.
+        Currently this only supports eSign plans and modules.  Required scopes: organization_sub_account_write
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_asset_group_account(organization_id, request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param SubAccountCreateRequest request: The request details for the new account. (required)
+        :return: SubscriptionProvisionModelAssetGroupWorkResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.create_asset_group_account_with_http_info(organization_id, request, **kwargs)
+        else:
+            (data) = self.create_asset_group_account_with_http_info(organization_id, request, **kwargs)
+            return data
+
+    def create_asset_group_account_with_http_info(self, organization_id, request, **kwargs):
+        """
+        Creates a new Docusign account using the plan and modules specified in request body.
+        Currently this only supports eSign plans and modules.  Required scopes: organization_sub_account_write
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_asset_group_account_with_http_info(organization_id, request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param SubAccountCreateRequest request: The request details for the new account. (required)
+        :return: SubscriptionProvisionModelAssetGroupWorkResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['organization_id', 'request']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_asset_group_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in params) or (params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `create_asset_group_account`")
+        # verify the required parameter 'request' is set
+        if ('request' not in params) or (params['request'] is None):
+            raise ValueError("Missing the required parameter `request` when calling `create_asset_group_account`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v2/organizations/{organizationId}/assetGroups/accountCreate'.replace('{format}', 'json')
+        path_params = {}
+        if 'organization_id' in params:
+            path_params['organizationId'] = params['organization_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request' in params:
+            body_params = params['request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='SubscriptionProvisionModelAssetGroupWorkResult',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -234,7 +348,7 @@ class ProvisionAssetGroupApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/organizations/{organizationId}/assetGroups/{assetGroupId}/accountClones/{assetGroupWorkId}'.replace('{format}', 'json')
+        resource_path = '/v2/organizations/{organizationId}/assetGroups/{assetGroupId}/accountClones/{assetGroupWorkId}'.replace('{format}', 'json')
         path_params = {}
         if 'organization_id' in params:
             path_params['organizationId'] = params['organization_id']
@@ -351,7 +465,7 @@ class ProvisionAssetGroupApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/organizations/{organizationId}/assetGroups/accountClones'.replace('{format}', 'json')
+        resource_path = '/v2/organizations/{organizationId}/assetGroups/accountClones'.replace('{format}', 'json')
         path_params = {}
         if 'organization_id' in params:
             path_params['organizationId'] = params['organization_id']
@@ -464,7 +578,7 @@ class ProvisionAssetGroupApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/organizations/{organizationId}/assetGroups/accounts'.replace('{format}', 'json')
+        resource_path = '/v2/organizations/{organizationId}/assetGroups/accounts'.replace('{format}', 'json')
         path_params = {}
         if 'organization_id' in params:
             path_params['organizationId'] = params['organization_id']
@@ -498,6 +612,353 @@ class ProvisionAssetGroupApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='AssetGroupAccountsResponse',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_organization_plan_items(self, organization_id, **kwargs):
+        """
+        Gets the subscription details for an organization id.
+        Currently charges and non e-sign assets are excluded in the response.  Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_organization_plan_items(organization_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :return: list[OrganizationSubscriptionResponse]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_organization_plan_items_with_http_info(organization_id, **kwargs)
+        else:
+            (data) = self.get_organization_plan_items_with_http_info(organization_id, **kwargs)
+            return data
+
+    def get_organization_plan_items_with_http_info(self, organization_id, **kwargs):
+        """
+        Gets the subscription details for an organization id.
+        Currently charges and non e-sign assets are excluded in the response.  Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_organization_plan_items_with_http_info(organization_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :return: list[OrganizationSubscriptionResponse]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['organization_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization_plan_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in params) or (params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_organization_plan_items`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v2/organizations/{organizationId}/planItems'.replace('{format}', 'json')
+        path_params = {}
+        if 'organization_id' in params:
+            path_params['organizationId'] = params['organization_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[OrganizationSubscriptionResponse]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_sub_account_create_process_by_asset_group_work_id(self, organization_id, asset_group_id, asset_group_work_id, **kwargs):
+        """
+        Gets an asset group account create process info by the asset group work id.
+        Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sub_account_create_process_by_asset_group_work_id(organization_id, asset_group_id, asset_group_work_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param str asset_group_id: The Guid representing the asset group id. (required)
+        :param str asset_group_work_id: The Guid representing the asset group account create id (required)
+        :param bool include_details: When true, include details for the asset group account create.
+        :return: SubAccountCreateWorker
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_sub_account_create_process_by_asset_group_work_id_with_http_info(organization_id, asset_group_id, asset_group_work_id, **kwargs)
+        else:
+            (data) = self.get_sub_account_create_process_by_asset_group_work_id_with_http_info(organization_id, asset_group_id, asset_group_work_id, **kwargs)
+            return data
+
+    def get_sub_account_create_process_by_asset_group_work_id_with_http_info(self, organization_id, asset_group_id, asset_group_work_id, **kwargs):
+        """
+        Gets an asset group account create process info by the asset group work id.
+        Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sub_account_create_process_by_asset_group_work_id_with_http_info(organization_id, asset_group_id, asset_group_work_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param str asset_group_id: The Guid representing the asset group id. (required)
+        :param str asset_group_work_id: The Guid representing the asset group account create id (required)
+        :param bool include_details: When true, include details for the asset group account create.
+        :return: SubAccountCreateWorker
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['organization_id', 'asset_group_id', 'asset_group_work_id', 'include_details']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sub_account_create_process_by_asset_group_work_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in params) or (params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_sub_account_create_process_by_asset_group_work_id`")
+        # verify the required parameter 'asset_group_id' is set
+        if ('asset_group_id' not in params) or (params['asset_group_id'] is None):
+            raise ValueError("Missing the required parameter `asset_group_id` when calling `get_sub_account_create_process_by_asset_group_work_id`")
+        # verify the required parameter 'asset_group_work_id' is set
+        if ('asset_group_work_id' not in params) or (params['asset_group_work_id'] is None):
+            raise ValueError("Missing the required parameter `asset_group_work_id` when calling `get_sub_account_create_process_by_asset_group_work_id`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v2/organizations/{organizationId}/assetGroup/{assetGroupId}/subAccountCreated/{assetGroupWorkId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'organization_id' in params:
+            path_params['organizationId'] = params['organization_id']
+        if 'asset_group_id' in params:
+            path_params['assetGroupId'] = params['asset_group_id']
+        if 'asset_group_work_id' in params:
+            path_params['assetGroupWorkId'] = params['asset_group_work_id']
+
+        query_params = {}
+        if 'include_details' in params:
+            query_params['include_details'] = params['include_details']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='SubAccountCreateWorker',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_sub_account_create_processes_by_org_id(self, organization_id, **kwargs):
+        """
+        Gets all asset group account creation processes for an organization id.
+        Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sub_account_create_processes_by_org_id(organization_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param datetime since_updated_date: When provided and is in the past, only return asset group account create processes that are updated after the date.
+        :param bool include_details: When true, include details for the asset group account create processes.
+        :return: SubAccountCreateWorkerResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_sub_account_create_processes_by_org_id_with_http_info(organization_id, **kwargs)
+        else:
+            (data) = self.get_sub_account_create_processes_by_org_id_with_http_info(organization_id, **kwargs)
+            return data
+
+    def get_sub_account_create_processes_by_org_id_with_http_info(self, organization_id, **kwargs):
+        """
+        Gets all asset group account creation processes for an organization id.
+        Required scopes: organization_sub_account_read
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_sub_account_create_processes_by_org_id_with_http_info(organization_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str organization_id: The Guid representing the organization id. (required)
+        :param datetime since_updated_date: When provided and is in the past, only return asset group account create processes that are updated after the date.
+        :param bool include_details: When true, include details for the asset group account create processes.
+        :return: SubAccountCreateWorkerResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['organization_id', 'since_updated_date', 'include_details']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_sub_account_create_processes_by_org_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in params) or (params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_sub_account_create_processes_by_org_id`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v2/organizations/{organizationId}/subAccountsCreated'.replace('{format}', 'json')
+        path_params = {}
+        if 'organization_id' in params:
+            path_params['organizationId'] = params['organization_id']
+
+        query_params = {}
+        if 'since_updated_date' in params:
+            query_params['since_updated_date'] = params['since_updated_date']
+        if 'include_details' in params:
+            query_params['include_details'] = params['include_details']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='SubAccountCreateWorkerResponse',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

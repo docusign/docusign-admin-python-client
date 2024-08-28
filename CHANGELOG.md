@@ -3,6 +3,36 @@ All notable changes to this project will be documented in this file.
 
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v2.0.0rc1] - Admin API v2.1-1.4.0 - 2024-08-27
+### Breaking Changes
+<details>
+<summary>API Changes (Click to expand)</summary>
+
+<br/>
+<div style="margin-left: 20px;">
+
+Added new query parameter "include_ds_groups" to the API "/v2/organizations/{organizationId}/users":
+
+<h3>Added New APIs for Account Creation</h3>
+<li>GET: get subscription details for organization</li>
+<li>POST: initiate Create account request</li>
+<li>GET: get ongoing process details by org ID</li>
+<li>GET: get individual process details by org ID, asset group ID, asset group work ID</li>
+
+
+</div>
+</details>
+
+- Deprecated nose library in favor of pynose.
+ 
+### Other Changes
+- Revised the logic to determine the `oauth_host_name` based on the `base_path`.
+- Excluded test directories from package distribution.
+- Added support for proxy HTTP connections.
+- Adjusted the minimum required `PyJWT` package version to `2.0.0`.
+- Added support for version v2.1-1.4.0 of the DocuSign Admin API.
+- Updated the SDK release version.
+
 ## [v1.4.1] - Admin API v2.1-1.3.0 - 2023-11-13
 ### Changed
 - Fixed installation steps in README.md
