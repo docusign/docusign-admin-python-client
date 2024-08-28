@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    DocuSign Admin API
+    Docusign Admin API
 
     An API for an organization administrator to manage organizations, accounts and users  # noqa: E501
 
@@ -1135,6 +1135,7 @@ class UsersApi(object):
         :param str account_id: Select users that are members of the specified account. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
+        :param bool include_ds_groups: Select users with groups the users belong to; The organization must have entitlement AllowMultiApplication enabled.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1171,12 +1172,13 @@ class UsersApi(object):
         :param str account_id: Select users that are members of the specified account. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
+        :param bool include_ds_groups: Select users with groups the users belong to; The organization must have entitlement AllowMultiApplication enabled.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'start', 'take', 'end', 'email', 'email_user_name_like', 'status', 'membership_status', 'account_id', 'organization_reserved_domain_id', 'last_modified_since']
+        all_params = ['organization_id', 'start', 'take', 'end', 'email', 'email_user_name_like', 'status', 'membership_status', 'account_id', 'organization_reserved_domain_id', 'last_modified_since', 'include_ds_groups']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1224,6 +1226,8 @@ class UsersApi(object):
             query_params['organization_reserved_domain_id'] = params['organization_reserved_domain_id']
         if 'last_modified_since' in params:
             query_params['last_modified_since'] = params['last_modified_since']
+        if 'include_ds_groups' in params:
+            query_params['include_ds_groups'] = params['include_ds_groups']
 
         header_params = {}
 

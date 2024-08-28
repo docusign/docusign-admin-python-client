@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    DocuSign Admin API
+    Docusign Admin API
 
     An API for an organization administrator to manage organizations, accounts and users  # noqa: E501
 
@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages, Command, os  # noqa: H301	
 
 NAME = "docusign-admin"
-VERSION = "1.4.1"
+VERSION = "2.0.0rc1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -22,7 +22,7 @@ VERSION = "1.4.1"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.8.0", "certifi >= 14.05.14", "python-dateutil >= 2.5.3", "setuptools >= 21.0.0", "PyJWT>=1.7.1", "cryptography>=2.5", "nose>=1.3.7"]
+REQUIRES = ["urllib3 >= 1.15", "six >= 1.8.0", "certifi >= 14.05.14", "python-dateutil >= 2.5.3", "setuptools >= 21.0.0", "PyJWT>=2.0.0", "cryptography>=2.5"]
 
 class CleanCommand(Command):
     """Custom clean command to tidy up the project root."""
@@ -42,12 +42,12 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name=NAME,
     version=VERSION,
-    description="DocuSign Admin API",
+    description="Docusign Admin API",
     author_email="devcenter@docusign.com",
     url="",
-    keywords=["Swagger", "DocuSign Admin API"],
+    keywords=["Swagger", "Docusign Admin API"],
     install_requires=REQUIRES,
-    packages=find_packages(),
+    packages=find_packages(exclude=["test"]),
     include_package_data=True,
     cmdclass={
         'clean': CleanCommand,
