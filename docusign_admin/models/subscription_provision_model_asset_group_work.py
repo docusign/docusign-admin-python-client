@@ -57,10 +57,10 @@ class SubscriptionProvisionModelAssetGroupWork(object):
         'source_system': 'str',
         'source_id': 'str',
         'created_by': 'str',
-        'created_by_type': 'str',
+        'created_by_type': 'int',
         'created_date': 'datetime',
         'updated_by': 'str',
-        'updated_by_type': 'str',
+        'updated_by_type': 'int',
         'updated_date': 'datetime',
         'update_history': 'list[SubscriptionProvisionModelChangeEvent]'
     }
@@ -689,9 +689,10 @@ class SubscriptionProvisionModelAssetGroupWork(object):
     def created_by_type(self):
         """Gets the created_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
 
+        0 stands for Application, 1 stands for User, 2 stands for Generic, 3 stands for RestAPIAuth, 4 stands for Resource, 5 stands for Restricted  # noqa: E501
 
         :return: The created_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._created_by_type
 
@@ -699,11 +700,12 @@ class SubscriptionProvisionModelAssetGroupWork(object):
     def created_by_type(self, created_by_type):
         """Sets the created_by_type of this SubscriptionProvisionModelAssetGroupWork.
 
+        0 stands for Application, 1 stands for User, 2 stands for Generic, 3 stands for RestAPIAuth, 4 stands for Resource, 5 stands for Restricted  # noqa: E501
 
         :param created_by_type: The created_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
-        :type: str
+        :type: int
         """
-        allowed_values = ["Application", "User", "Generic", "RestAPIAuth", "Resource", "Restricted"]  # noqa: E501
+        allowed_values = [0, 1, 2, 3, 4, 5]  # noqa: E501
         if (self._configuration.client_side_validation and
                 created_by_type not in allowed_values):
             raise ValueError(
@@ -759,9 +761,10 @@ class SubscriptionProvisionModelAssetGroupWork(object):
     def updated_by_type(self):
         """Gets the updated_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
 
+        0 stands for Application, 1 stands for User, 2 stands for Generic, 3 stands for RestAPIAuth, 4 stands for Resource, 5 stands for Restricted  # noqa: E501
 
         :return: The updated_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._updated_by_type
 
@@ -769,11 +772,12 @@ class SubscriptionProvisionModelAssetGroupWork(object):
     def updated_by_type(self, updated_by_type):
         """Sets the updated_by_type of this SubscriptionProvisionModelAssetGroupWork.
 
+        0 stands for Application, 1 stands for User, 2 stands for Generic, 3 stands for RestAPIAuth, 4 stands for Resource, 5 stands for Restricted  # noqa: E501
 
         :param updated_by_type: The updated_by_type of this SubscriptionProvisionModelAssetGroupWork.  # noqa: E501
-        :type: str
+        :type: int
         """
-        allowed_values = ["Application", "User", "Generic", "RestAPIAuth", "Resource", "Restricted"]  # noqa: E501
+        allowed_values = [0, 1, 2, 3, 4, 5]  # noqa: E501
         if (self._configuration.client_side_validation and
                 updated_by_type not in allowed_values):
             raise ValueError(

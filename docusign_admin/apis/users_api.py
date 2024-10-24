@@ -1135,7 +1135,7 @@ class UsersApi(object):
         :param str account_id: Select users that are members of the specified account. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
-        :param bool include_ds_groups: Select users with groups the users belong to; The organization must have entitlement AllowMultiApplication enabled.
+        :param bool include_ds_groups: Select users with groups the users belong to; account_id must be specified. The organization must have the entitlement AllowMultiApplication enabled.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1172,7 +1172,7 @@ class UsersApi(object):
         :param str account_id: Select users that are members of the specified account. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
-        :param bool include_ds_groups: Select users with groups the users belong to; The organization must have entitlement AllowMultiApplication enabled.
+        :param bool include_ds_groups: Select users with groups the users belong to; account_id must be specified. The organization must have the entitlement AllowMultiApplication enabled.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.

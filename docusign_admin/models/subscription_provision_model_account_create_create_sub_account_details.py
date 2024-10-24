@@ -40,7 +40,7 @@ class SubscriptionProvisionModelAccountCreateCreateSubAccountDetails(object):
         'site': 'str',
         'address': 'DocuSignAccountDomainModelAddress',
         'admin_user': 'SubscriptionProvisionModelAccountCreateAccountAdmin',
-        'billing_profile_type': 'str'
+        'billing_profile_type': 'int'
     }
 
     attribute_map = {
@@ -230,9 +230,10 @@ class SubscriptionProvisionModelAccountCreateCreateSubAccountDetails(object):
     def billing_profile_type(self):
         """Gets the billing_profile_type of this SubscriptionProvisionModelAccountCreateCreateSubAccountDetails.  # noqa: E501
 
+        0 stands for Web, 1 stands for Direct  # noqa: E501
 
         :return: The billing_profile_type of this SubscriptionProvisionModelAccountCreateCreateSubAccountDetails.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._billing_profile_type
 
@@ -240,11 +241,12 @@ class SubscriptionProvisionModelAccountCreateCreateSubAccountDetails(object):
     def billing_profile_type(self, billing_profile_type):
         """Sets the billing_profile_type of this SubscriptionProvisionModelAccountCreateCreateSubAccountDetails.
 
+        0 stands for Web, 1 stands for Direct  # noqa: E501
 
         :param billing_profile_type: The billing_profile_type of this SubscriptionProvisionModelAccountCreateCreateSubAccountDetails.  # noqa: E501
-        :type: str
+        :type: int
         """
-        allowed_values = ["Web", "Direct"]  # noqa: E501
+        allowed_values = [0, 1]  # noqa: E501
         if (self._configuration.client_side_validation and
                 billing_profile_type not in allowed_values):
             raise ValueError(
