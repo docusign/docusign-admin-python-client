@@ -38,7 +38,11 @@ class AddUserResponseAccountProperties(object):
         'product_permission_profiles': 'list[ProductPermissionProfileResponse]',
         'ds_groups': 'list[DSGroupResponse]',
         'company_name': 'str',
-        'job_title': 'str'
+        'job_title': 'str',
+        'license_type': 'str',
+        'subscription_id': 'str',
+        'plan_name': 'str',
+        'license_status': 'str'
     }
 
     attribute_map = {
@@ -47,7 +51,11 @@ class AddUserResponseAccountProperties(object):
         'product_permission_profiles': 'product_permission_profiles',
         'ds_groups': 'ds_groups',
         'company_name': 'company_name',
-        'job_title': 'job_title'
+        'job_title': 'job_title',
+        'license_type': 'license_type',
+        'subscription_id': 'subscription_id',
+        'plan_name': 'plan_name',
+        'license_status': 'license_status'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -62,6 +70,10 @@ class AddUserResponseAccountProperties(object):
         self._ds_groups = None
         self._company_name = None
         self._job_title = None
+        self._license_type = None
+        self._subscription_id = None
+        self._plan_name = None
+        self._license_status = None
         self.discriminator = None
 
         setattr(self, "_{}".format('id'), kwargs.get('id', None))
@@ -70,6 +82,10 @@ class AddUserResponseAccountProperties(object):
         setattr(self, "_{}".format('ds_groups'), kwargs.get('ds_groups', None))
         setattr(self, "_{}".format('company_name'), kwargs.get('company_name', None))
         setattr(self, "_{}".format('job_title'), kwargs.get('job_title', None))
+        setattr(self, "_{}".format('license_type'), kwargs.get('license_type', None))
+        setattr(self, "_{}".format('subscription_id'), kwargs.get('subscription_id', None))
+        setattr(self, "_{}".format('plan_name'), kwargs.get('plan_name', None))
+        setattr(self, "_{}".format('license_status'), kwargs.get('license_status', None))
 
     @property
     def id(self):
@@ -196,6 +212,90 @@ class AddUserResponseAccountProperties(object):
         """
 
         self._job_title = job_title
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this AddUserResponseAccountProperties.  # noqa: E501
+
+
+        :return: The license_type of this AddUserResponseAccountProperties.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this AddUserResponseAccountProperties.
+
+
+        :param license_type: The license_type of this AddUserResponseAccountProperties.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
+
+    @property
+    def subscription_id(self):
+        """Gets the subscription_id of this AddUserResponseAccountProperties.  # noqa: E501
+
+
+        :return: The subscription_id of this AddUserResponseAccountProperties.  # noqa: E501
+        :rtype: str
+        """
+        return self._subscription_id
+
+    @subscription_id.setter
+    def subscription_id(self, subscription_id):
+        """Sets the subscription_id of this AddUserResponseAccountProperties.
+
+
+        :param subscription_id: The subscription_id of this AddUserResponseAccountProperties.  # noqa: E501
+        :type: str
+        """
+
+        self._subscription_id = subscription_id
+
+    @property
+    def plan_name(self):
+        """Gets the plan_name of this AddUserResponseAccountProperties.  # noqa: E501
+
+
+        :return: The plan_name of this AddUserResponseAccountProperties.  # noqa: E501
+        :rtype: str
+        """
+        return self._plan_name
+
+    @plan_name.setter
+    def plan_name(self, plan_name):
+        """Sets the plan_name of this AddUserResponseAccountProperties.
+
+
+        :param plan_name: The plan_name of this AddUserResponseAccountProperties.  # noqa: E501
+        :type: str
+        """
+
+        self._plan_name = plan_name
+
+    @property
+    def license_status(self):
+        """Gets the license_status of this AddUserResponseAccountProperties.  # noqa: E501
+
+
+        :return: The license_status of this AddUserResponseAccountProperties.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_status
+
+    @license_status.setter
+    def license_status(self, license_status):
+        """Sets the license_status of this AddUserResponseAccountProperties.
+
+
+        :param license_status: The license_status of this AddUserResponseAccountProperties.  # noqa: E501
+        :type: str
+        """
+
+        self._license_status = license_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

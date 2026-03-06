@@ -41,9 +41,16 @@ class OrganizationUserResponse(object):
         'membership_status': 'str',
         'email': 'str',
         'created_on': 'datetime',
+        'closed_on': 'datetime',
         'membership_created_on': 'datetime',
+        'membership_closed_on': 'datetime',
         'ds_groups': 'list[DSGroupResponse]',
-        'membership_id': 'str'
+        'membership_id': 'str',
+        'is_membership_managed_by_scim': 'bool',
+        'is_managed_by_scim': 'bool',
+        'license_type': 'str',
+        'subscription_id': 'str',
+        'plan_name': 'str'
     }
 
     attribute_map = {
@@ -55,9 +62,16 @@ class OrganizationUserResponse(object):
         'membership_status': 'membership_status',
         'email': 'email',
         'created_on': 'created_on',
+        'closed_on': 'closed_on',
         'membership_created_on': 'membership_created_on',
+        'membership_closed_on': 'membership_closed_on',
         'ds_groups': 'ds_groups',
-        'membership_id': 'membership_id'
+        'membership_id': 'membership_id',
+        'is_membership_managed_by_scim': 'is_membership_managed_by_scim',
+        'is_managed_by_scim': 'is_managed_by_scim',
+        'license_type': 'license_type',
+        'subscription_id': 'subscription_id',
+        'plan_name': 'plan_name'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -74,9 +88,16 @@ class OrganizationUserResponse(object):
         self._membership_status = None
         self._email = None
         self._created_on = None
+        self._closed_on = None
         self._membership_created_on = None
+        self._membership_closed_on = None
         self._ds_groups = None
         self._membership_id = None
+        self._is_membership_managed_by_scim = None
+        self._is_managed_by_scim = None
+        self._license_type = None
+        self._subscription_id = None
+        self._plan_name = None
         self.discriminator = None
 
         setattr(self, "_{}".format('id'), kwargs.get('id', None))
@@ -87,9 +108,16 @@ class OrganizationUserResponse(object):
         setattr(self, "_{}".format('membership_status'), kwargs.get('membership_status', None))
         setattr(self, "_{}".format('email'), kwargs.get('email', None))
         setattr(self, "_{}".format('created_on'), kwargs.get('created_on', None))
+        setattr(self, "_{}".format('closed_on'), kwargs.get('closed_on', None))
         setattr(self, "_{}".format('membership_created_on'), kwargs.get('membership_created_on', None))
+        setattr(self, "_{}".format('membership_closed_on'), kwargs.get('membership_closed_on', None))
         setattr(self, "_{}".format('ds_groups'), kwargs.get('ds_groups', None))
         setattr(self, "_{}".format('membership_id'), kwargs.get('membership_id', None))
+        setattr(self, "_{}".format('is_membership_managed_by_scim'), kwargs.get('is_membership_managed_by_scim', None))
+        setattr(self, "_{}".format('is_managed_by_scim'), kwargs.get('is_managed_by_scim', None))
+        setattr(self, "_{}".format('license_type'), kwargs.get('license_type', None))
+        setattr(self, "_{}".format('subscription_id'), kwargs.get('subscription_id', None))
+        setattr(self, "_{}".format('plan_name'), kwargs.get('plan_name', None))
 
     @property
     def id(self):
@@ -260,6 +288,27 @@ class OrganizationUserResponse(object):
         self._created_on = created_on
 
     @property
+    def closed_on(self):
+        """Gets the closed_on of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The closed_on of this OrganizationUserResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._closed_on
+
+    @closed_on.setter
+    def closed_on(self, closed_on):
+        """Sets the closed_on of this OrganizationUserResponse.
+
+
+        :param closed_on: The closed_on of this OrganizationUserResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._closed_on = closed_on
+
+    @property
     def membership_created_on(self):
         """Gets the membership_created_on of this OrganizationUserResponse.  # noqa: E501
 
@@ -279,6 +328,27 @@ class OrganizationUserResponse(object):
         """
 
         self._membership_created_on = membership_created_on
+
+    @property
+    def membership_closed_on(self):
+        """Gets the membership_closed_on of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The membership_closed_on of this OrganizationUserResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._membership_closed_on
+
+    @membership_closed_on.setter
+    def membership_closed_on(self, membership_closed_on):
+        """Sets the membership_closed_on of this OrganizationUserResponse.
+
+
+        :param membership_closed_on: The membership_closed_on of this OrganizationUserResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._membership_closed_on = membership_closed_on
 
     @property
     def ds_groups(self):
@@ -321,6 +391,111 @@ class OrganizationUserResponse(object):
         """
 
         self._membership_id = membership_id
+
+    @property
+    def is_membership_managed_by_scim(self):
+        """Gets the is_membership_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The is_membership_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_membership_managed_by_scim
+
+    @is_membership_managed_by_scim.setter
+    def is_membership_managed_by_scim(self, is_membership_managed_by_scim):
+        """Sets the is_membership_managed_by_scim of this OrganizationUserResponse.
+
+
+        :param is_membership_managed_by_scim: The is_membership_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_membership_managed_by_scim = is_membership_managed_by_scim
+
+    @property
+    def is_managed_by_scim(self):
+        """Gets the is_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The is_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_managed_by_scim
+
+    @is_managed_by_scim.setter
+    def is_managed_by_scim(self, is_managed_by_scim):
+        """Sets the is_managed_by_scim of this OrganizationUserResponse.
+
+
+        :param is_managed_by_scim: The is_managed_by_scim of this OrganizationUserResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_managed_by_scim = is_managed_by_scim
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The license_type of this OrganizationUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this OrganizationUserResponse.
+
+
+        :param license_type: The license_type of this OrganizationUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
+
+    @property
+    def subscription_id(self):
+        """Gets the subscription_id of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The subscription_id of this OrganizationUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._subscription_id
+
+    @subscription_id.setter
+    def subscription_id(self, subscription_id):
+        """Sets the subscription_id of this OrganizationUserResponse.
+
+
+        :param subscription_id: The subscription_id of this OrganizationUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._subscription_id = subscription_id
+
+    @property
+    def plan_name(self):
+        """Gets the plan_name of this OrganizationUserResponse.  # noqa: E501
+
+
+        :return: The plan_name of this OrganizationUserResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._plan_name
+
+    @plan_name.setter
+    def plan_name(self, plan_name):
+        """Sets the plan_name of this OrganizationUserResponse.
+
+
+        :param plan_name: The plan_name of this OrganizationUserResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._plan_name = plan_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

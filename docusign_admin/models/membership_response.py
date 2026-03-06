@@ -33,6 +33,7 @@ class MembershipResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
         'email': 'str',
         'account_id': 'str',
         'external_account_id': 'str',
@@ -42,10 +43,14 @@ class MembershipResponse(object):
         'permission_profile': 'PermissionProfileResponse',
         'created_on': 'datetime',
         'groups': 'list[MemberGroupResponse]',
-        'is_admin': 'bool'
+        'is_admin': 'bool',
+        'license_type': 'str',
+        'subscription_id': 'str',
+        'plan_name': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
         'email': 'email',
         'account_id': 'account_id',
         'external_account_id': 'external_account_id',
@@ -55,7 +60,10 @@ class MembershipResponse(object):
         'permission_profile': 'permission_profile',
         'created_on': 'created_on',
         'groups': 'groups',
-        'is_admin': 'is_admin'
+        'is_admin': 'is_admin',
+        'license_type': 'license_type',
+        'subscription_id': 'subscription_id',
+        'plan_name': 'plan_name'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -64,6 +72,7 @@ class MembershipResponse(object):
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._id = None
         self._email = None
         self._account_id = None
         self._external_account_id = None
@@ -74,8 +83,12 @@ class MembershipResponse(object):
         self._created_on = None
         self._groups = None
         self._is_admin = None
+        self._license_type = None
+        self._subscription_id = None
+        self._plan_name = None
         self.discriminator = None
 
+        setattr(self, "_{}".format('id'), kwargs.get('id', None))
         setattr(self, "_{}".format('email'), kwargs.get('email', None))
         setattr(self, "_{}".format('account_id'), kwargs.get('account_id', None))
         setattr(self, "_{}".format('external_account_id'), kwargs.get('external_account_id', None))
@@ -86,6 +99,30 @@ class MembershipResponse(object):
         setattr(self, "_{}".format('created_on'), kwargs.get('created_on', None))
         setattr(self, "_{}".format('groups'), kwargs.get('groups', None))
         setattr(self, "_{}".format('is_admin'), kwargs.get('is_admin', None))
+        setattr(self, "_{}".format('license_type'), kwargs.get('license_type', None))
+        setattr(self, "_{}".format('subscription_id'), kwargs.get('subscription_id', None))
+        setattr(self, "_{}".format('plan_name'), kwargs.get('plan_name', None))
+
+    @property
+    def id(self):
+        """Gets the id of this MembershipResponse.  # noqa: E501
+
+
+        :return: The id of this MembershipResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this MembershipResponse.
+
+
+        :param id: The id of this MembershipResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def email(self):
@@ -296,6 +333,69 @@ class MembershipResponse(object):
         """
 
         self._is_admin = is_admin
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this MembershipResponse.  # noqa: E501
+
+
+        :return: The license_type of this MembershipResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this MembershipResponse.
+
+
+        :param license_type: The license_type of this MembershipResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
+
+    @property
+    def subscription_id(self):
+        """Gets the subscription_id of this MembershipResponse.  # noqa: E501
+
+
+        :return: The subscription_id of this MembershipResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._subscription_id
+
+    @subscription_id.setter
+    def subscription_id(self, subscription_id):
+        """Sets the subscription_id of this MembershipResponse.
+
+
+        :param subscription_id: The subscription_id of this MembershipResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._subscription_id = subscription_id
+
+    @property
+    def plan_name(self):
+        """Gets the plan_name of this MembershipResponse.  # noqa: E501
+
+
+        :return: The plan_name of this MembershipResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._plan_name
+
+    @plan_name.setter
+    def plan_name(self, plan_name):
+        """Sets the plan_name of this MembershipResponse.
+
+
+        :param plan_name: The plan_name of this MembershipResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._plan_name = plan_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

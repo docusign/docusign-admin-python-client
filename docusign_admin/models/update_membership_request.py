@@ -39,7 +39,8 @@ class UpdateMembershipRequest(object):
         'company_name': 'str',
         'job_title': 'str',
         'send_activation': 'bool',
-        'access_code': 'str'
+        'access_code': 'str',
+        'license_type': 'str'
     }
 
     attribute_map = {
@@ -49,7 +50,8 @@ class UpdateMembershipRequest(object):
         'company_name': 'company_name',
         'job_title': 'job_title',
         'send_activation': 'send_activation',
-        'access_code': 'access_code'
+        'access_code': 'access_code',
+        'license_type': 'license_type'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -65,6 +67,7 @@ class UpdateMembershipRequest(object):
         self._job_title = None
         self._send_activation = None
         self._access_code = None
+        self._license_type = None
         self.discriminator = None
 
         setattr(self, "_{}".format('account_id'), kwargs.get('account_id', None))
@@ -74,6 +77,7 @@ class UpdateMembershipRequest(object):
         setattr(self, "_{}".format('job_title'), kwargs.get('job_title', None))
         setattr(self, "_{}".format('send_activation'), kwargs.get('send_activation', None))
         setattr(self, "_{}".format('access_code'), kwargs.get('access_code', None))
+        setattr(self, "_{}".format('license_type'), kwargs.get('license_type', None))
 
     @property
     def account_id(self):
@@ -223,6 +227,27 @@ class UpdateMembershipRequest(object):
         """
 
         self._access_code = access_code
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this UpdateMembershipRequest.  # noqa: E501
+
+
+        :return: The license_type of this UpdateMembershipRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this UpdateMembershipRequest.
+
+
+        :param license_type: The license_type of this UpdateMembershipRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

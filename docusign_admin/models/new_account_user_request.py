@@ -44,7 +44,8 @@ class NewAccountUserRequest(object):
         'selected_languages': 'str',
         'access_code': 'str',
         'federated_status': 'str',
-        'auto_activate_memberships': 'bool'
+        'auto_activate_memberships': 'bool',
+        'license_type': 'str'
     }
 
     attribute_map = {
@@ -59,7 +60,8 @@ class NewAccountUserRequest(object):
         'selected_languages': 'selected_languages',
         'access_code': 'access_code',
         'federated_status': 'federated_status',
-        'auto_activate_memberships': 'auto_activate_memberships'
+        'auto_activate_memberships': 'auto_activate_memberships',
+        'license_type': 'license_type'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -80,6 +82,7 @@ class NewAccountUserRequest(object):
         self._access_code = None
         self._federated_status = None
         self._auto_activate_memberships = None
+        self._license_type = None
         self.discriminator = None
 
         setattr(self, "_{}".format('permission_profile'), kwargs.get('permission_profile', None))
@@ -94,6 +97,7 @@ class NewAccountUserRequest(object):
         setattr(self, "_{}".format('access_code'), kwargs.get('access_code', None))
         setattr(self, "_{}".format('federated_status'), kwargs.get('federated_status', None))
         setattr(self, "_{}".format('auto_activate_memberships'), kwargs.get('auto_activate_memberships', None))
+        setattr(self, "_{}".format('license_type'), kwargs.get('license_type', None))
 
     @property
     def permission_profile(self):
@@ -348,6 +352,27 @@ class NewAccountUserRequest(object):
         """
 
         self._auto_activate_memberships = auto_activate_memberships
+
+    @property
+    def license_type(self):
+        """Gets the license_type of this NewAccountUserRequest.  # noqa: E501
+
+
+        :return: The license_type of this NewAccountUserRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this NewAccountUserRequest.
+
+
+        :param license_type: The license_type of this NewAccountUserRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._license_type = license_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
