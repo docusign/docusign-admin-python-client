@@ -783,6 +783,7 @@ class UsersApi(object):
         :param str organization_id: The organization ID Guid (required)
         :param str user_id: The user ID Guid (required)
         :param bool sort: Sorts user information by account name ascending
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -811,12 +812,13 @@ class UsersApi(object):
         :param str organization_id: The organization ID Guid (required)
         :param str user_id: The user ID Guid (required)
         :param bool sort: Sorts user information by account name ascending
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'user_id', 'sort']
+        all_params = ['organization_id', 'user_id', 'sort', 'include_license']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -851,6 +853,8 @@ class UsersApi(object):
         query_params = {}
         if 'sort' in params:
             query_params['sort'] = params['sort']
+        if 'include_license' in params:
+            query_params['include_license'] = params['include_license']
 
         header_params = {}
 
@@ -901,6 +905,7 @@ class UsersApi(object):
         :param str organization_id: The organization ID Guid (required)
         :param str email: The email address of the user
         :param bool sort: Sorts user information by account name ascending
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -929,12 +934,13 @@ class UsersApi(object):
         :param str organization_id: The organization ID Guid (required)
         :param str email: The email address of the user
         :param bool sort: Sorts user information by account name ascending
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'email', 'sort']
+        all_params = ['organization_id', 'email', 'sort', 'include_license']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -966,6 +972,8 @@ class UsersApi(object):
             query_params['email'] = params['email']
         if 'sort' in params:
             query_params['sort'] = params['sort']
+        if 'include_license' in params:
+            query_params['include_license'] = params['include_license']
 
         header_params = {}
 
@@ -1015,6 +1023,7 @@ class UsersApi(object):
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
         :param str email: The email address
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1042,12 +1051,13 @@ class UsersApi(object):
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
         :param str email: The email address
+        :param bool include_license: When true: additional details about the user's license will be included in the response. The account must have an IAM plan with licenses.
         :return: UsersDrilldownResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'email']
+        all_params = ['organization_id', 'email', 'include_license']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1077,6 +1087,8 @@ class UsersApi(object):
         query_params = {}
         if 'email' in params:
             query_params['email'] = params['email']
+        if 'include_license' in params:
+            query_params['include_license'] = params['include_license']
 
         header_params = {}
 
@@ -1136,6 +1148,7 @@ class UsersApi(object):
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
         :param bool include_ds_groups: Select users with groups the users belong to; account_id must be specified. The organization must have the entitlement AllowMultiApplication enabled.
+        :param bool include_license: When true: additional details about the user's license will be included in the response; account_id must be specified and the account must have an IAM plan with licenses.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1173,12 +1186,13 @@ class UsersApi(object):
         :param str organization_reserved_domain_id: Select users that are in the specified domain. At least one of email, account_id or organization_reserved_domain_id must be specified.
         :param str last_modified_since: Select users whose data have been modified since the date specified;  account_id or organization_reserved_domain_id must be specified.
         :param bool include_ds_groups: Select users with groups the users belong to; account_id must be specified. The organization must have the entitlement AllowMultiApplication enabled.
+        :param bool include_license: When true: additional details about the user's license will be included in the response; account_id must be specified and the account must have an IAM plan with licenses.
         :return: OrganizationUsersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'start', 'take', 'end', 'email', 'email_user_name_like', 'status', 'membership_status', 'account_id', 'organization_reserved_domain_id', 'last_modified_since', 'include_ds_groups']
+        all_params = ['organization_id', 'start', 'take', 'end', 'email', 'email_user_name_like', 'status', 'membership_status', 'account_id', 'organization_reserved_domain_id', 'last_modified_since', 'include_ds_groups', 'include_license']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1228,6 +1242,8 @@ class UsersApi(object):
             query_params['last_modified_since'] = params['last_modified_since']
         if 'include_ds_groups' in params:
             query_params['include_ds_groups'] = params['include_ds_groups']
+        if 'include_license' in params:
+            query_params['include_license'] = params['include_license']
 
         header_params = {}
 
@@ -1390,6 +1406,7 @@ class UsersApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
+        :param bool apply_license_override: If an account has an IAM plan with licenses, this query specifies how a user's license is handled. Values: true - Updates the user's existing license; false - Adds a license to the user
         :param UpdateUsersRequest request: The user details to update (required)
         :return: UsersUpdateResponse
                  If the method is called asynchronously,
@@ -1417,13 +1434,14 @@ class UsersApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str organization_id: The organization ID Guid (required)
+        :param bool apply_license_override: If an account has an IAM plan with licenses, this query specifies how a user's license is handled. Values: true - Updates the user's existing license; false - Adds a license to the user
         :param UpdateUsersRequest request: The user details to update (required)
         :return: UsersUpdateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['organization_id', 'request']
+        all_params = ['organization_id', 'apply_license_override', 'request']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1454,6 +1472,8 @@ class UsersApi(object):
             path_params['organizationId'] = params['organization_id']
 
         query_params = {}
+        if 'apply_license_override' in params:
+            query_params['apply_license_override'] = params['apply_license_override']
 
         header_params = {}
 

@@ -8,6 +8,7 @@ from .bulk_exports_api import BulkExportsApi
 from .bulk_imports_api import BulkImportsApi
 from .ds_groups_api import DSGroupsApi
 from .identity_providers_api import IdentityProvidersApi
+from .org_connect_api import OrgConnectApi
 from .organizations_api import OrganizationsApi
 from .product_permission_profiles_api import ProductPermissionProfilesApi
 from .provision_asset_group_api import ProvisionAssetGroupApi

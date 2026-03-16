@@ -43,7 +43,8 @@ class DSGroupResponse(object):
         'last_modified_on': 'datetime',
         'user_count': 'int',
         'external_account_id': 'int',
-        'account_name': 'str'
+        'account_name': 'str',
+        'is_managed_by_scim': 'bool'
     }
 
     attribute_map = {
@@ -57,7 +58,8 @@ class DSGroupResponse(object):
         'last_modified_on': 'last_modified_on',
         'user_count': 'user_count',
         'external_account_id': 'external_account_id',
-        'account_name': 'account_name'
+        'account_name': 'account_name',
+        'is_managed_by_scim': 'is_managed_by_scim'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -77,6 +79,7 @@ class DSGroupResponse(object):
         self._user_count = None
         self._external_account_id = None
         self._account_name = None
+        self._is_managed_by_scim = None
         self.discriminator = None
 
         setattr(self, "_{}".format('ds_group_id'), kwargs.get('ds_group_id', None))
@@ -90,6 +93,7 @@ class DSGroupResponse(object):
         setattr(self, "_{}".format('user_count'), kwargs.get('user_count', None))
         setattr(self, "_{}".format('external_account_id'), kwargs.get('external_account_id', None))
         setattr(self, "_{}".format('account_name'), kwargs.get('account_name', None))
+        setattr(self, "_{}".format('is_managed_by_scim'), kwargs.get('is_managed_by_scim', None))
 
     @property
     def ds_group_id(self):
@@ -321,6 +325,27 @@ class DSGroupResponse(object):
         """
 
         self._account_name = account_name
+
+    @property
+    def is_managed_by_scim(self):
+        """Gets the is_managed_by_scim of this DSGroupResponse.  # noqa: E501
+
+
+        :return: The is_managed_by_scim of this DSGroupResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_managed_by_scim
+
+    @is_managed_by_scim.setter
+    def is_managed_by_scim(self, is_managed_by_scim):
+        """Sets the is_managed_by_scim of this DSGroupResponse.
+
+
+        :param is_managed_by_scim: The is_managed_by_scim of this DSGroupResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_managed_by_scim = is_managed_by_scim
 
     def to_dict(self):
         """Returns the model properties as a dict"""

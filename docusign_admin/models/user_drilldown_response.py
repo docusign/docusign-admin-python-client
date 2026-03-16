@@ -50,7 +50,11 @@ class UserDrilldownResponse(object):
         'last_login': 'datetime',
         'memberships': 'list[MembershipResponse]',
         'identities': 'list[UserIdentityResponse]',
-        'device_verification_enabled': 'bool'
+        'device_verification_enabled': 'bool',
+        'require_two_step_verification': 'bool',
+        'allow_two_step_verification_snooze': 'bool',
+        'allow_extend_org_admin_rights_to_self': 'bool',
+        'is_managed_by_scim': 'bool'
     }
 
     attribute_map = {
@@ -71,7 +75,11 @@ class UserDrilldownResponse(object):
         'last_login': 'last_login',
         'memberships': 'memberships',
         'identities': 'identities',
-        'device_verification_enabled': 'device_verification_enabled'
+        'device_verification_enabled': 'device_verification_enabled',
+        'require_two_step_verification': 'require_two_step_verification',
+        'allow_two_step_verification_snooze': 'allow_two_step_verification_snooze',
+        'allow_extend_org_admin_rights_to_self': 'allow_extend_org_admin_rights_to_self',
+        'is_managed_by_scim': 'is_managed_by_scim'
     }
 
     def __init__(self, _configuration=None, **kwargs):  # noqa: E501
@@ -98,6 +106,10 @@ class UserDrilldownResponse(object):
         self._memberships = None
         self._identities = None
         self._device_verification_enabled = None
+        self._require_two_step_verification = None
+        self._allow_two_step_verification_snooze = None
+        self._allow_extend_org_admin_rights_to_self = None
+        self._is_managed_by_scim = None
         self.discriminator = None
 
         setattr(self, "_{}".format('id'), kwargs.get('id', None))
@@ -118,6 +130,10 @@ class UserDrilldownResponse(object):
         setattr(self, "_{}".format('memberships'), kwargs.get('memberships', None))
         setattr(self, "_{}".format('identities'), kwargs.get('identities', None))
         setattr(self, "_{}".format('device_verification_enabled'), kwargs.get('device_verification_enabled', None))
+        setattr(self, "_{}".format('require_two_step_verification'), kwargs.get('require_two_step_verification', None))
+        setattr(self, "_{}".format('allow_two_step_verification_snooze'), kwargs.get('allow_two_step_verification_snooze', None))
+        setattr(self, "_{}".format('allow_extend_org_admin_rights_to_self'), kwargs.get('allow_extend_org_admin_rights_to_self', None))
+        setattr(self, "_{}".format('is_managed_by_scim'), kwargs.get('is_managed_by_scim', None))
 
     @property
     def id(self):
@@ -496,6 +512,90 @@ class UserDrilldownResponse(object):
         """
 
         self._device_verification_enabled = device_verification_enabled
+
+    @property
+    def require_two_step_verification(self):
+        """Gets the require_two_step_verification of this UserDrilldownResponse.  # noqa: E501
+
+
+        :return: The require_two_step_verification of this UserDrilldownResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._require_two_step_verification
+
+    @require_two_step_verification.setter
+    def require_two_step_verification(self, require_two_step_verification):
+        """Sets the require_two_step_verification of this UserDrilldownResponse.
+
+
+        :param require_two_step_verification: The require_two_step_verification of this UserDrilldownResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._require_two_step_verification = require_two_step_verification
+
+    @property
+    def allow_two_step_verification_snooze(self):
+        """Gets the allow_two_step_verification_snooze of this UserDrilldownResponse.  # noqa: E501
+
+
+        :return: The allow_two_step_verification_snooze of this UserDrilldownResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_two_step_verification_snooze
+
+    @allow_two_step_verification_snooze.setter
+    def allow_two_step_verification_snooze(self, allow_two_step_verification_snooze):
+        """Sets the allow_two_step_verification_snooze of this UserDrilldownResponse.
+
+
+        :param allow_two_step_verification_snooze: The allow_two_step_verification_snooze of this UserDrilldownResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_two_step_verification_snooze = allow_two_step_verification_snooze
+
+    @property
+    def allow_extend_org_admin_rights_to_self(self):
+        """Gets the allow_extend_org_admin_rights_to_self of this UserDrilldownResponse.  # noqa: E501
+
+
+        :return: The allow_extend_org_admin_rights_to_self of this UserDrilldownResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_extend_org_admin_rights_to_self
+
+    @allow_extend_org_admin_rights_to_self.setter
+    def allow_extend_org_admin_rights_to_self(self, allow_extend_org_admin_rights_to_self):
+        """Sets the allow_extend_org_admin_rights_to_self of this UserDrilldownResponse.
+
+
+        :param allow_extend_org_admin_rights_to_self: The allow_extend_org_admin_rights_to_self of this UserDrilldownResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_extend_org_admin_rights_to_self = allow_extend_org_admin_rights_to_self
+
+    @property
+    def is_managed_by_scim(self):
+        """Gets the is_managed_by_scim of this UserDrilldownResponse.  # noqa: E501
+
+
+        :return: The is_managed_by_scim of this UserDrilldownResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_managed_by_scim
+
+    @is_managed_by_scim.setter
+    def is_managed_by_scim(self, is_managed_by_scim):
+        """Sets the is_managed_by_scim of this UserDrilldownResponse.
+
+
+        :param is_managed_by_scim: The is_managed_by_scim of this UserDrilldownResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_managed_by_scim = is_managed_by_scim
 
     def to_dict(self):
         """Returns the model properties as a dict"""
